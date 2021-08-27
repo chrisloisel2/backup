@@ -20,12 +20,12 @@ int	ft_raloc(t_stack *r)
 	return (0);
 }
 
-int	ft_test(char *str, int max, t_stack *r)
+int	ft_test(char *str, long max, t_stack *r)
 {
 	int		i;
 	long	test;
 
-	test = ft_atoi(str);
+	test = ft_long_atoi(str);
 	if (test > 2147483647 || test < -2147483648)
 		return (0);
 	i = 0;
@@ -103,7 +103,7 @@ int	ft_check_arg(int num, char **argv, t_stack *r)
 	while (num > 0)
 	{
 		while (argv[num][i] != '\0' && (ft_isdigit(argv[num][i]) ||
-					(argv[num][i] == '-' && i == 0)))
+					(argv[num][i] == '-' && ft_isdigit(argv[num][i + 1]))))
 			i++;
 		if (i != ft_strlen(argv[num]))
 			return (-1);

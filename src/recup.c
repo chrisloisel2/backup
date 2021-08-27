@@ -27,7 +27,7 @@ int	ft_recup_split(char **argv, t_stack *r)
 				argv[1][i + 1] == '-' || argv[1][i + 1] == ' '))
 	{
 		if (argv[1][i] == ' ' && (ft_isdigit(argv[1][i + 1]) ||
-					argv[1][i + 1] == '-'))
+					(argv[1][i + 1] == '-')))
 			r->lena++;
 		i++;
 	}

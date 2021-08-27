@@ -76,5 +76,6 @@ int		ft_fill_stack2(char **argv, int num, t_stack *r);
 int		ft_check_arg(int num, char **argv, t_stack *r);
 void	lstdelcore(t_lst **alst, int core);
 void	slice(t_lst *s, t_stack *r, t_lst *copy);
+long	ft_long_atoi(const char *str);
 
 #endif

@@ -75,3 +75,28 @@ int	ft_check_order(t_stack *r)
 		return (2);
 	return (1);
 }
+
+long	ft_long_atoi(const char *str)
+{
+	int		i;
+	int		neg;
+	long	nb;
+
+	nb = 0;
+	i = 0;
+	neg = 1;
+	while (ft_white_space(str[i]))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg *= -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		nb = (nb * 10) + (str[i] - 48);
+		i++;
+	}
+	return (nb * neg);
+}

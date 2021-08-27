@@ -57,10 +57,7 @@ int	ft_push_swap(int num, char **argv)
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
-	{
-		printf("ERROR ARG");
 		return (0);
-	}
 	else
 		ft_push_swap(argc, argv);
 	return (0);
