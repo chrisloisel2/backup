@@ -12,6 +12,30 @@
 
 #include "../swap.h"
 
+void	order2(int *d, int x, int *a)
+{
+	int	i;
+	int	y;
+	int	test;
+
+	y = 1;
+	test = 2147483647;
+	i = 0;
+	while (y < x)
+	{
+		while (i < x)
+		{
+			if (a[i] < test && a[i] > d[y - 1])
+				test = a[i];
+			i++;
+		}
+		d[y] = test;
+		test = 2147483647;
+		y++;
+		i = 0;
+	}
+}
+
 void	order(int *d, int x, int *a)
 {
 	int	i;
@@ -28,21 +52,7 @@ void	order(int *d, int x, int *a)
 		i--;
 	}
 	d[0] = test;
-	test = 2147483647;
-	i = 0;
-	while (y < x)
-	{
-		while (i < x)
-		{
-			if (a[i] < test && a[i] > d[y - 1])
-				test = a[i];
-			i++;
-		}
-		d[y] = test;
-		test = 2147483647;
-		y++;
-		i = 0;
-	}
+	order2(d, x, a);
 }
 
 int	ft_check_order(t_stack *r)

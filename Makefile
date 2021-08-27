@@ -22,7 +22,8 @@ SRC		=	main\
 			help\
 			rotate\
 			reverse\
-			ft_algo\
+			recup\
+			algo\
 			depush\
 			push\
 			print\

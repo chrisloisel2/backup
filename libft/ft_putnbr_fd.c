@@ -6,15 +6,15 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 18:59:07 by lchristo          #+#    #+#             */
-/*   Updated: 2019/10/28 19:14:18 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 01:52:21 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_cube(int n)
+int	ft_cube(int n)
 {
-	int c;
+	int	c;
 
 	c = 1;
 	while (n > 0)
@@ -31,10 +31,17 @@ void	ft_putnbr_fd(int n, int fd)
 	long	nb;
 
 	nb = (long)n;
-	len = (nb < 0) ? ft_intlen(-nb) : ft_intlen(nb);
-	(nb < 0) ? ft_putchar_fd('-', fd) : 0;
-	nb = (nb < 0) ? -nb : nb;
-	(nb == 0) ? ft_putchar_fd('0', fd) : 0;
+	if (nb < 0)
+		len = ft_intlen(-nb);
+	else
+		len = ft_intlen(nb);
+	if (nb < 0)
+	{
+		ft_putchar_fd('-', fd);
+		nb = -nb;
+	}
+	if (nb == 0)
+		ft_putchar_fd('0', fd);
 	while (len > 0)
 	{
 		len--;

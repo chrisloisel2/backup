@@ -26,7 +26,6 @@ int	sa(t_stack *r)
 	r->a[indexb] = r->a[indexa];
 	r->a[indexa] = i;
 	r->coup++;
-	r->sa++;
 	printf("sa\n");
 	return (1);
 }
@@ -44,7 +43,6 @@ int	sb(t_stack *r)
 	i = r->b[indexb];
 	r->b[indexb] = r->b[indexa];
 	r->b[indexa] = i;
-	r->sb++;
 	r->coup++;
 	printf("sb\n");
 	return (1);
@@ -68,7 +66,6 @@ int	ss(t_stack *r)
 	i = r->b[indexb];
 	r->b[indexb] = r->b[indexa];
 	r->b[indexa] = i;
-	r->ss++;
 	printf("ss\n");
 	return (1);
 }
@@ -82,7 +79,6 @@ int	pa(t_stack *r)
 	r->lena++;
 	r->lenb--;
 	r->coup++;
-	r->pa++;
 	printf("pa\n");
 	return (1);
 }
@@ -96,7 +92,6 @@ int	pb(t_stack *r)
 	r->lenb++;
 	r->lena--;
 	r->coup++;
-	r->pb++;
 	printf("pb\n");
 	return (1);
 }

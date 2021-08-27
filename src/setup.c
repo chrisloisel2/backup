@@ -12,6 +12,14 @@
 
 #include "../swap.h"
 
+int	ft_raloc(t_stack *r)
+{
+	r->a = malloc(sizeof(int) * r->lena + 1);
+	r->b = malloc(sizeof(int) * r->lena + 1);
+	r->tl = malloc(sizeof(int) * r->lena + 1);
+	return (0);
+}
+
 int	ft_test(char *str, int max, t_stack *r)
 {
 	int		i;
@@ -39,9 +47,7 @@ int	ft_fill_stack2(char **argv, int num, t_stack *r)
 	y = 0;
 	i = 0;
 	r->lenmax = r->lena;
-	r->a = malloc(sizeof(int) * r->lenmax + 1);
-	r->b = malloc(sizeof(int) * r->lenmax + 1);
-	r->tl = malloc(sizeof(int) * r->lenmax + 1);
+	ft_raloc(r);
 	tab = ft_split(argv[1], ' ');
 	while (num >= 0)
 	{
@@ -69,9 +75,7 @@ int	ft_fill_stack(int num, char **argv, t_stack *r)
 	y = 0;
 	i = 0;
 	r->lenmax = num;
-	r->a = malloc(sizeof(int) * num + 1);
-	r->b = malloc(sizeof(int) * num + 1);
-	r->tl = malloc(sizeof(int) * num + 1);
+	ft_raloc(r);
 	while (num > 0)
 	{
 		while (argv[num][i] != '\0' && (ft_isdigit(argv[num][i]) ||
@@ -109,42 +113,4 @@ int	ft_check_arg(int num, char **argv, t_stack *r)
 		num--;
 	}
 	return (1);
-}
-
-int	ft_recup_split(char **argv, t_stack *r)
-{
-	int	i;
-	int	len;
-
-	len = ft_strlen(argv[1]) - 1;
-	i = 0;
-	r->lena = 1;
-	r->lenb = 0;
-	while (argv[1][i] != '\0' && (ft_isdigit(argv[1][i + 1]) ||
-				argv[1][i + 1] == '-' || argv[1][i + 1] == ' '))
-	{
-		if (argv[1][i] == ' ' && (ft_isdigit(argv[1][i + 1]) ||
-					argv[1][i + 1] == '-'))
-			r->lena++;
-		i++;
-	}
-	if (i == len)
-		return (ft_fill_stack2(argv, r->lena - 1, r));
-	return (1);
-}
-
-int	ft_recup(int num, char **argv, t_stack *r)
-{
-	if (num == 2 && (ft_strlen(argv[1]) > 2) && ft_recup_split(argv, r) == 1)
-	{
-		printf("ERROR\n");
-		return (-1);
-	}
-	else if (num > 2 && (ft_check_arg(num - 1, argv, r) == -1
-			|| ft_fill_stack(num - 1, argv, r) == -1))
-	{
-		printf("ERROR\n");
-		return (-1);
-	}
-	return (0);
 }

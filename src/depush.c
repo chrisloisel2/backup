@@ -6,12 +6,11 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 20:29:13 by lchristo          #+#    #+#             */
-/*   Updated: 2021/08/26 22:34:36 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 03:42:58 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../swap.h"
-
 
 int	ft_smart_depush(t_lst *s, t_stack *r)
 {
@@ -26,34 +25,13 @@ int	ft_smart_depush(t_lst *s, t_stack *r)
 		nex = next(r, r->b[r->lenb]);
 	target = prev(r, r->a[r->lena - 1]);
 	i = pos(r, r->a[r->lena - 1]) - s->posmin;
-	milieu = r->tl[(s->posmin + (i/ 2))];
+	milieu = r->tl[(s->posmin + (i / 2))];
 	if (r->lenb > 0 && target == r->b[r->lenb - 1])
 		return (pa(r));
 	if (target == r->b[0])
 		return (rrb(r) + pa(r));
 	if (target == r->a[0])
 		return (rra(r));
-	if (r->lenb > 0 && r->swap == 0 && r->b[r->lenb - 1] == nex)
-	{
-		r->swap = r->b[r->lenb - 1];
-		return (pa(r));
-	}
-	if (r->lenb > 0 && r->b[r->lenb - 1] == r->swap)
-	{
-		while (r->lena > 0 && r->a[r->lena - 1] != prev(r, r->swap))
-		{
-			s->bot++;
-			ra(r);
-		}
-		pa(r);
-		while (s->bot > 0)
-		{
-			s->bot--;
-			rra(r);
-		}
-		r->swap = 0;
-		return (0);
-	}
 	return (ft_reversed_depusha(r));
 }
 
@@ -89,7 +67,8 @@ void	ft_depush(t_lst *s, t_stack *r)
 {
 	while (ft_stop_depush(s, r))
 	{
-		if (prev(r, r->a[r->lena - 1]) == r->b[0] || prev(r, r->a[r->lena - 1]) == r->a[0])
+		if (prev(r, r->a[r->lena - 1]) == r->b[0]
+			|| prev(r, r->a[r->lena - 1]) == r->a[0])
 			ft_smart_depush(s, r);
 		else if (r->b[r->lenb - 1] >= s->min && r->b[r->lenb - 1] <= s->max)
 			ft_smart_depush(s, r);

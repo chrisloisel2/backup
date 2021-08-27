@@ -6,16 +6,16 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/20 23:30:35 by lchristo          #+#    #+#             */
-/*   Updated: 2019/10/29 00:02:42 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 01:44:02 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count(char const *s, char c)
+int	ft_count(char const *s, char c)
 {
-	int		total;
-	int		test;
+	int	total;
+	int	test;
 
 	total = 0;
 	test = 0;
@@ -33,7 +33,7 @@ int		ft_count(char const *s, char c)
 	return (total);
 }
 
-int		ft_fill(char const *s, char c)
+int	ft_fill(char const *s, char c)
 {
 	int		i;
 
@@ -71,14 +71,12 @@ char	**ft_split(char const *s, char c)
 	y = 0;
 	if (!s)
 		return (NULL);
-	if (!(tab = malloc(sizeof(char *) * (ft_count(s, c) + 1))))
-		return (NULL);
+	tab = malloc(sizeof(char *) * (ft_count(s, c) + 1));
 	while (i < ft_count(s, c))
 	{
 		while (s[tmp] == c)
 			tmp++;
-		if (!(tab[i] = malloc(sizeof(char) * ft_fill(s + tmp, c) + 1)))
-			return (ft_clean(tab, i));
+		tab[i] = malloc(sizeof(char) * ft_fill(s + tmp, c) + 1);
 		while (s[tmp] != c && s[tmp] != '\0')
 			tab[i][y++] = s[tmp++];
 		tab[i++][y] = '\0';

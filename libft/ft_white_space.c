@@ -6,16 +6,16 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/08 03:10:08 by lchristo          #+#    #+#             */
-/*   Updated: 2021/01/05 20:38:39 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 01:27:05 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_white_space(char str)
+int	ft_white_space(char str)
 {
-	if (str == ' ' || str == '\n' || str == '\t' || str == '\v' ||
-			str == '\f' || str == '\r')
+	if (str == ' ' || str == '\n' || str == '\t' || str == '\v'
+		|| str == '\f' || str == '\r')
 		return (1);
 	return (0);
 }

@@ -6,15 +6,15 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 02:20:52 by lchristo          #+#    #+#             */
-/*   Updated: 2020/07/07 02:25:32 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 01:22:11 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "gnl.h"
 
-int		ft_checkfile(char *line)
+int	ft_checkfile(char *line)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (line[i] != '\0')
@@ -28,7 +28,7 @@ int		ft_checkfile(char *line)
 
 char	*ft_run_stat(char *stat)
 {
-	char *leak;
+	char	*leak;
 
 	leak = stat;
 	stat = ft_sub_str(stat, ft_checkfile(stat) + 1, ft_strlen(stat));
@@ -43,7 +43,7 @@ char	*ft_malloc(char **stat)
 	return (*stat);
 }
 
-int		ft_return(char **stat, char ***line, int ret)
+int	ft_return(char **stat, char ***line, int ret)
 {
 	if (ret > 0)
 	{
@@ -56,7 +56,7 @@ int		ft_return(char **stat, char ***line, int ret)
 	return (0);
 }
 
-int		get_next_line(int fd, char **line)
+int	get_next_line(int fd, char **line)
 {
 	char		tmp[BUFFER_SIZE + 1];
 	static char	*stat;
@@ -64,7 +64,8 @@ int		get_next_line(int fd, char **line)
 	char		*leak;
 
 	ret = 0;
-	(!stat) ? stat = ft_malloc(&stat) : 0;
+	if (!stat)
+		stat = ft_malloc(&stat);
 	if (ft_checkfile(stat) != -1)
 	{
 		*line = ft_sub_str(stat, 0, ft_checkfile(stat));

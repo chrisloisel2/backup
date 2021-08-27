@@ -73,3 +73,17 @@ void	ft_smart_push(t_lst *s, t_stack *r)
 			ft_smart_roll2(s, r);
 	}
 }
+
+void	slice(t_lst *s, t_stack *r, t_lst *copy)
+{
+	if (copy->range >= 25)
+		s->range = copy->range / 2;
+	else
+		s->range = copy->range;
+	copy->range -= s->range;
+	s->posmin = copy->posmin;
+	copy->posmin += s->range;
+	s->posmax = s->posmin + s->range;
+	copy->max = 0;
+	s->max = r->tl[s->posmax];
+}

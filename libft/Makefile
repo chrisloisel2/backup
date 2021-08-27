@@ -20,7 +20,6 @@ LIB_OBJ =	ft_atoi\
 			ft_isascii\
 			ft_isdigit\
 			ft_isprint\
-			ft_itoa\
 			ft_memccpy\
 			ft_memchr\
 			ft_memcmp\
@@ -33,22 +32,9 @@ LIB_OBJ =	ft_atoi\
 			ft_putnbr_fd\
 			ft_putstr_fd\
 			ft_split\
-			ft_zero\
-			ft_minus\
-			ft_printf\
-			ft_puthexa\
-			ft_putstr\
-			ft_calculus\
-			ft_alpha\
-			ft_dot\
-			ft_flag\
 			ft_free_strjoin\
-			ft_get\
-			ft_get_str\
-			ft_get_numbers\
 			get_next_line\
 			get_next_line_utils\
-			ft_star\
 			ft_strchr\
 			ft_strdup\
 			ft_strjoin\
@@ -82,7 +68,6 @@ O = $(addsuffix .o, $(LIB_OBJ))
 
 H = 	gnl.h \
 	 	libft.h \
-		printf.h
 
 cc = gcc
 

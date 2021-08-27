@@ -6,18 +6,19 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/11 04:28:24 by lchristo          #+#    #+#             */
-/*   Updated: 2020/06/11 04:40:04 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 03:28:51 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
 void	ft_free_strjoin(char *s1, char *s2, char **leaks)
 {
-	char *new;
+	char	*new;
 
 	new = *leaks;
 	*leaks = ft_strjoin((const char *)s1, (const char *)s2);
-	(new) ? free(new) : 0;
+	if (new)
+		free(new);
 	new = NULL;
 }

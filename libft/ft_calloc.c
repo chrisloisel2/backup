@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/14 20:23:45 by lchristo          #+#    #+#             */
-/*   Updated: 2019/10/15 01:22:44 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 03:27:57 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ void	*ft_calloc(size_t count, size_t size)
 	void	*start;
 
 	total = count * size;
-	if (!(pt = malloc(total)))
-		return (0);
+	pt = malloc(total);
 	start = pt;
 	while (total--)
 	{

@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 10:38:18 by lchristo          #+#    #+#             */
-/*   Updated: 2019/10/24 05:24:44 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 03:34:55 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *lsnext;
+	t_list	*lsnext;
 
-	if (!(lsnext = malloc(sizeof(t_list))))
-		return (NULL);
+	lsnext = malloc(sizeof(t_list));
 	lsnext->content = content;
 	lsnext->next = NULL;
 	return (lsnext);

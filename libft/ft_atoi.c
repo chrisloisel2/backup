@@ -6,15 +6,15 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 20:29:13 by lchristo          #+#    #+#             */
-/*   Updated: 2020/06/11 00:23:49 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 03:27:14 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int		ft_intlen(long c)
+int	ft_intlen(long c)
 {
-	int p;
+	int	p;
 
 	p = 0;
 	while (c > 0)
@@ -25,19 +25,17 @@ int		ft_intlen(long c)
 	return (p);
 }
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int i;
-	int neg;
-	int nb;
+	int	i;
+	int	neg;
+	int	nb;
 
 	nb = 0;
 	i = 0;
 	neg = 1;
 	while (ft_white_space(str[i]))
-	{
 		i++;
-	}
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')

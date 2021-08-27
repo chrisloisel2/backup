@@ -12,17 +12,6 @@
 
 #include "../swap.h"
 
-t_lst	*lstnew(void)
-{
-	t_lst	*lsnext;
-
-	if (!(lsnext = malloc(sizeof(t_lst))))
-		return (NULL);
-	lsnext->next = NULL;
-	lsnext->prev = NULL;
-	return (lsnext);
-}
-
 t_lst	*lstlast(t_lst *lst)
 {
 	t_lst	*t;
@@ -70,24 +59,15 @@ void	lstdelcore(t_lst **alst, int core)
 		before = sup->prev;
 		before->next = after;
 		after->prev = before;
-		free(sup);
-		sup = NULL;
 	}
 	else if (sup->prev == NULL && sup->next != NULL)
 	{
 		after = sup->next;
 		alst = &after;
 		after->prev = NULL;
-		free(sup);
-		sup = NULL;
 	}
-	else if (sup->prev != NULL && sup->next == NULL)
-	{
-		before = sup->prev;
-		before = NULL;
-		free(sup);
-		sup = NULL;
-	}
+	free(sup);
+	sup = NULL;
 }
 
 void	lstadd_back(t_lst **alst, t_lst *new, t_stack *r)
@@ -115,4 +95,14 @@ void	lstadd_back(t_lst **alst, t_lst *new, t_stack *r)
 	new->bot = 0;
 	new->top = 0;
 	new->prev = p;
+}
+
+t_lst	*lstnew(void)
+{
+	t_lst	*lsnext;
+
+	lsnext = malloc(sizeof(t_lst));
+	lsnext->next = NULL;
+	lsnext->prev = NULL;
+	return (lsnext);
 }

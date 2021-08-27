@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 03:21:02 by lchristo          #+#    #+#             */
-/*   Updated: 2019/11/23 02:42:47 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 01:08:49 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 # include <string.h>
 # include <stdlib.h>
 
-typedef struct	s_list
+typedef struct s_list
 {
-	void						*content;
-	struct s_list				*next;
+	void			*content;
+	struct s_list	*next;
 }				t_list;
 
+int				ft_atoi(const char *str);
+void			ft_free_strjoin(char *s1, char *s2, char **leaks);
 int				ft_intlen(long c);
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstdelone(t_list *lst, void (*del)(void *));
