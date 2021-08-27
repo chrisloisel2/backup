@@ -36,22 +36,16 @@ char	*ft_run_stat(char *stat)
 	return (stat);
 }
 
-char	*ft_malloc(char **stat)
+int	ft_return(char **stat, char ***line, int *ret)
 {
-	*stat = malloc(sizeof(char) * 1);
-	*stat[0] = '\0';
-	return (*stat);
-}
-
-int	ft_return(char **stat, char ***line, int ret)
-{
-	if (ret > 0)
+	if (*ret > 0)
 	{
 		**line = ft_sub_str(*stat, 0, ft_checkfile(*stat));
 		*stat = ft_run_stat(*stat);
+		*ret = 1;
 		return (1);
 	}
-	if (ret == -1)
+	if (*ret == -1)
 		return (-1);
 	return (0);
 }
@@ -60,27 +54,26 @@ int	get_next_line(int fd, char **line)
 {
 	char		tmp[BUFFER_SIZE + 1];
 	static char	*stat;
-	int			ret;
+	int			*ret;
+	int			a;
 	char		*leak;
 
-	ret = 0;
-	if (!stat)
-		stat = ft_malloc(&stat);
-	if (ft_checkfile(stat) != -1)
-	{
-		*line = ft_sub_str(stat, 0, ft_checkfile(stat));
-		stat = ft_run_stat(stat);
+	ret = &a;
+	a = 0;
+	if (ft_supp_gnl(stat, line))
 		return (1);
-	}
-	while ((ft_checkfile(stat) == -1) && (ret = read(fd, tmp, BUFFER_SIZE)) > 0)
+	while (ft_checkfile(stat) == -1)
 	{
-		tmp[ret] = '\0';
+		*ret = read(fd, tmp, BUFFER_SIZE);
+		if (*ret < 0)
+			break ;
+		tmp[*ret] = '\0';
 		leak = stat;
 		stat = ft_strjoin(stat, tmp);
 		free(leak);
 	}
-	if ((ret = ft_return(&stat, &line, ret)) != 0)
-		return (ret);
+	if ((ft_return(&stat, &line, ret)) != 0)
+		return (*ret);
 	*line = ft_sub_str(stat, 0, ft_strlen(stat));
 	ft_freenull(&stat);
 	return (0);

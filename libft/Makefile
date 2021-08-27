@@ -59,7 +59,8 @@ LIB_OBJ =	ft_atoi\
 			ft_lstlast_bonus\
 			ft_lstmap_bonus\
 			ft_lstnew_bonus\
-			ft_lstsize_bonus
+			ft_lstsize_bonus\
+			ft_supp_gnl
 
 O = $(addsuffix .o, $(LIB_OBJ))
 

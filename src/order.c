@@ -45,7 +45,7 @@ void	order(int *d, int x, int *a)
 	i = x - 1;
 	y = 1;
 	test = 2147483647;
-	while (i >= 0)
+	while (a != NULL && i >= 0)
 	{
 		if (a[i] < test)
 			test = a[i];

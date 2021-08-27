@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 02:22:24 by lchristo          #+#    #+#             */
-/*   Updated: 2020/07/07 03:14:29 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/27 07:00:01 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ char	*ft_sub_str(char const *s, unsigned int start, size_t len);
 int		ft_checkfile(char *line);
 int		get_next_line(int fd, char **line);
 void	ft_freenull(char **stat);
+int		ft_supp_gnl(char *stat, char **line);
+char	*ft_run_stat(char *stat);
 
 #endif
