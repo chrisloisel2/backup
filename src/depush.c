@@ -14,18 +14,11 @@
 
 int	ft_smart_depush(t_lst *s, t_stack *r)
 {
-	int	milieu;
 	int	target;
-	int	nex;
 	int	i;
 
-	if (r->lenb > 0)
-		nex = next(r, r->b[r->lenb - 1]);
-	else
-		nex = next(r, r->b[r->lenb]);
 	target = prev(r, r->a[r->lena - 1]);
 	i = pos(r, r->a[r->lena - 1]) - s->posmin;
-	milieu = r->tl[(s->posmin + (i / 2))];
 	if (r->lenb > 0 && target == r->b[r->lenb - 1])
 		return (pa(r));
 	if (target == r->b[0])

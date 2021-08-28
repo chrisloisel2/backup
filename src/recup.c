@@ -17,14 +17,17 @@ int	ft_recup_split(char **argv, t_stack *r)
 	int	i;
 	int	len;
 
-	len = ft_strlen(argv[1]) - 1;
+	len = ft_strlen(argv[1]);
+	if (len == 0)
+		return (1);
 	i = 0;
 	while (ft_white_space(argv[1][i]))
 		i++;
 	r->lena = 1;
 	r->lenb = 0;
-	while (argv[1][i] != '\0' && (ft_isdigit(argv[1][i + 1]) ||
-				argv[1][i + 1] == '-' || argv[1][i + 1] == ' '))
+	while (argv[1][i] != '\0' && (ft_isdigit(argv[1][i]) ||
+				(argv[1][i] == '-' && ft_isdigit(argv[1][i + 1])) ||
+				argv[1][i] == ' '))
 	{
 		if (argv[1][i] == ' ' && (ft_isdigit(argv[1][i + 1]) ||
 					(argv[1][i + 1] == '-')))
@@ -40,6 +43,8 @@ int	ft_recup(int num, char **argv, t_stack *r)
 {
 	if (num == 2 && ft_recup_split(argv, r) == 1)
 	{
+		if (ft_strlen(argv[1]) == 0)
+			return (-1);
 		printf("ERROR\n");
 		return (-1);
 	}
