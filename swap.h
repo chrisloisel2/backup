@@ -46,7 +46,7 @@ t_lst	*ft_algo(t_lst *s, t_stack *r);
 void	ft_full_pb(t_lst *s, t_stack *r);
 void	order(int *d, int x, int *a);
 int		ft_check_order(t_stack *r);
-int		ft_smart_depush(t_lst *s, t_stack *r);
+int		ft_smart_depush(t_stack *r);
 void	ft_smart_push(t_lst *s, t_stack *r);
 int		speed_push(t_stack *r);
 void	ft_depush(t_lst *s, t_stack *r);

@@ -39,11 +39,9 @@ void	order2(int *d, int x, int *a)
 void	order(int *d, int x, int *a)
 {
 	int	i;
-	int	y;
 	int	test;
 
 	i = x - 1;
-	y = 1;
 	test = 2147483647;
 	while (a != NULL && i >= 0)
 	{

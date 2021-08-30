@@ -47,7 +47,10 @@ int	ft_push_swap(int num, char **argv)
 	r = malloc(sizeof(t_stack));
 	r->coup = 0;
 	if (ft_recup(num, argv, r) == -1)
+	{
+		free_all(s, r);
 		return (-1);
+	}
 	order(r->tl, r->lena, r->a);
 	s = ft_algo(s, r);
 	free_all(s, r);

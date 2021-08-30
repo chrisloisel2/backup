@@ -12,13 +12,11 @@
 
 #include "../swap.h"
 
-int	ft_smart_depush(t_lst *s, t_stack *r)
+int	ft_smart_depush(t_stack *r)
 {
 	int	target;
-	int	i;
 
 	target = prev(r, r->a[r->lena - 1]);
-	i = pos(r, r->a[r->lena - 1]) - s->posmin;
 	if (r->lenb > 0 && target == r->b[r->lenb - 1])
 		return (pa(r));
 	if (target == r->b[0])
@@ -62,9 +60,9 @@ void	ft_depush(t_lst *s, t_stack *r)
 	{
 		if (prev(r, r->a[r->lena - 1]) == r->b[0]
 			|| prev(r, r->a[r->lena - 1]) == r->a[0])
-			ft_smart_depush(s, r);
+			ft_smart_depush(r);
 		else if (r->b[r->lenb - 1] >= s->min && r->b[r->lenb - 1] <= s->max)
-			ft_smart_depush(s, r);
+			ft_smart_depush(r);
 		else
 			ft_smart_roll(s, r);
 	}
