@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
+# include "printf.h"
 
 typedef struct s_list
 {
@@ -23,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
-int				ft_atoi(const char *str);
+char			*ft_strjoin(char *s1, char *s2);
 void			ft_free_strjoin(char *s1, char *s2, char **leaks);
 int				ft_intlen(long c);
 void			ft_lstclear(t_list **lst, void (*del)(void*));
@@ -48,7 +49,6 @@ int				ft_isalnum(int c);
 int				ft_toupper(int c);
 int				ft_tolower(int c);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *str, const char *to_find, size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);

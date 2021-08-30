@@ -17,7 +17,7 @@ void	ft_free_strjoin(char *s1, char *s2, char **leaks)
 	char	*new;
 
 	new = *leaks;
-	*leaks = ft_strjoin((const char *)s1, (const char *)s2);
+	*leaks = ft_strjoin(s1, s2);
 	if (new)
 		free(new);
 	new = NULL;

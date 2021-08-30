@@ -60,7 +60,24 @@ LIB_OBJ =	ft_atoi\
 			ft_lstmap_bonus\
 			ft_lstnew_bonus\
 			ft_lstsize_bonus\
-			ft_supp_gnl
+			ft_supp_gnl\
+			ft_printf\
+			ft_puthexa\
+			ft_putstr\
+			ft_get\
+			ft_star\
+			ft_atoi\
+			ft_get_str\
+			ft_strjoin\
+			ft_get_numbers\
+			ft_strlen\
+			ft_dot\
+			ft_calculus\
+			ft_alpha\
+			ft_minus\
+			ft_zero\
+			ft_flag
+
 
 O = $(addsuffix .o, $(LIB_OBJ))
 

@@ -1,39 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/11 04:28:24 by lchristo          #+#    #+#             */
-/*   Updated: 2021/08/30 14:02:10 by lchristo         ###   ########.fr       */
+/*   Created: 2019/11/17 02:06:43 by lchristo          #+#    #+#             */
+/*   Updated: 2021/08/30 13:46:27 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strjoin(char *s1, char *s2)
+void	ft_putstr_pf(char *s, t_pft *one)
 {
-	char	*s;
-	int		i;
-	int		y;
+	int	i;
 
-	s = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
 	i = 0;
-	y = 0;
-	while (s1[i] != '\0')
+	if (s == NULL)
+		ft_putstr_pf("(null)", one);
+	else
 	{
-		s[y] = s1[i];
-		i++;
-		y++;
+		while (s[i] != '\0' || one->null == 1)
+		{
+			if (one->null == 1)
+				one->null = 0;
+			ft_putchar(s[i], one);
+			i++;
+		}
 	}
-	i = 0;
-	while (s2[i] != '\0')
-	{
-		s[y] = s2[i];
-		y++;
-		i++;
-	}
-	s[y] = '\0';
-	return (s);
+}
+
+void	ft_putchar(char c, t_pft *one)
+{
+	write(1, &c, 1);
+	one->cpt++;
+}
+
+void	ft_point(unsigned long p, t_pft *one)
+{
+	ft_putstr_pf("0x", one);
+	ft_puthexa(p, one);
 }

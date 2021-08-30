@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 20:29:13 by lchristo          #+#    #+#             */
-/*   Updated: 2021/08/26 23:33:25 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/30 11:02:57 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ int	ft_push_swap(int num, char **argv)
 	r->coup = 0;
 	if (ft_recup(num, argv, r) == -1)
 	{
-		free_all(s, r);
+		free(r);
+		free(s);
 		return (-1);
 	}
 	order(r->tl, r->lena, r->a);
