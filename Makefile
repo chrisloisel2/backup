@@ -67,10 +67,11 @@ clean:
 	rm -rf $O
 	@$(MAKE) -C libft clean
 
-fclean: clean
+fclean:
+	rm -rf push_swap
 	@$(MAKE) -C libft fclean
 
 re:
 	@echo -n "\n\033[0;34mCompiling...\n"
-	cc -o $@ $O libft/libft.a -o $(NAME)
-	@echo -n "\n\033[1;32mCUB3D generated\n\n"
+	gcc -o $@ $O libft/libft.a -o $(NAME)
+	@echo -n "\n\033[1;32mpush_swap regenerated\n\n"

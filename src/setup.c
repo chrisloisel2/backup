@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 20:29:13 by lchristo          #+#    #+#             */
-/*   Updated: 2021/08/26 22:40:16 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/30 16:28:57 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,24 @@ int	ft_fill_stack2(char **argv, int num, t_stack *r)
 	char	**tab;
 
 	y = 0;
-	i = 0;
 	r->lenmax = r->lena;
 	ft_raloc(r);
 	tab = ft_split(argv[1], ' ');
 	while (num >= 0)
 	{
+		i = 0;
 		while (tab[num][i] != '\0' && (ft_isdigit(tab[num][i]) ||
 					(tab[num][i] == '-' && i == 0)))
 			i++;
 		if (i != ft_strlen(tab[num]))
-			return (1);
+			return (ft_freed(r, tab));
 		if (!((tab[num][i] == '\0') && ft_test(tab[num], y, r)))
-			return (1);
+			return (ft_freed(r, tab));
 		r->a[y] = ft_atoi(tab[num]);
 		y++;
-		i = 0;
 		num--;
 	}
+	free_tab(tab);
 	r->lena = r->lenmax;
 	return (0);
 }
@@ -82,9 +82,9 @@ int	ft_fill_stack(int num, char **argv, t_stack *r)
 					(argv[num][i] == '-' && i == 0)))
 			i++;
 		if (i != ft_strlen(argv[num]))
-			return (-1);
+			return (ft_negafree(r));
 		if (!((argv[num][i] == '\0') && ft_test(argv[num], y, r)))
-			return (-1);
+			return (ft_negafree(r));
 		r->a[y] = ft_atoi(argv[num]);
 		y++;
 		i = 0;

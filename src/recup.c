@@ -12,6 +12,36 @@
 
 #include "../swap.h"
 
+int	ft_negafree(t_stack *r)
+{
+	free(r->a);
+	free(r->b);
+	free(r->tl);
+	return (-1);
+}
+
+int	ft_freed(t_stack *r, char **tab)
+{
+	free(r->a);
+	free(r->b);
+	free(r->tl);
+	free_tab(tab);
+	return (1);
+}
+
+void	free_tab(char **tab)
+{
+	int	y;
+
+	y = 0;
+	while (tab[y])
+	{
+		free(tab[y]);
+		y++;
+	}
+	free(tab);
+}
+
 int	ft_recup_split(char **argv, t_stack *r)
 {
 	int	i;

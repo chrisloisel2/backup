@@ -6,7 +6,7 @@
 /*   By: lchristo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/11 20:29:13 by lchristo          #+#    #+#             */
-/*   Updated: 2021/08/30 11:02:57 by lchristo         ###   ########.fr       */
+/*   Updated: 2021/08/30 16:11:54 by lchristo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int	main(int argc, char **argv)
 		return (0);
 	else
 		ft_push_swap(argc, argv);
+	while(1);
 	return (0);
 }

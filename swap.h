@@ -39,6 +39,9 @@ typedef struct s_lst
 	struct s_lst	*prev;
 }				t_lst;
 
+void	free_tab(char **tab);
+int		ft_negafree(t_stack *r);
+int		ft_freed(t_stack *r, char **tab);
 int		ft_recup(int num, char **argv, t_stack *r);
 void	ft_print_lst(t_lst *s, t_stack *r);
 void	ft_print_lst2(t_lst *s, t_stack *r);
